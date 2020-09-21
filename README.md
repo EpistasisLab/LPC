@@ -1,6 +1,6 @@
 # LPC Documentation for the Epistasis Lab
 
-*Written by members (and friends) of the lab*
+*Written by members (and friends) of the lab.*
 
 ## Contents
 
@@ -10,6 +10,7 @@
   - [Links and other resources](#links-and-other-resources)
   - [Getting Started (e.g., new students)](#getting-started-eg-new-students)
   - [Logging into the LPC](#logging-into-the-lpc)
+    - [Logging in from Linux:](#logging-in-from-linux)
     - [Logging in from Windows](#logging-in-from-windows)
     - [Logging in from MacOS](#logging-in-from-macos)
       - [Using Cyberduck](#using-cyberduck)
@@ -62,38 +63,44 @@ Once you have an appropriate program, you will use it to log on to a server (bas
 sarlacc (sarlacc.pmacs.upenn.edu) is the Moore lab’s submit host.  It is only accessible on campus or through VPN.  This server is ‘beefier’ than others and has its own dedicated cores and storage space. This allows users to run ‘smaller’ computing processes directly on this head node (but this should be avoided).  It also allows users to install and manage their own ‘environment’.  For example if you wish to install the ‘anaconda’ package for running jobs you will need to log onto sarlacc.
 scisub (scisub.pmacs.upenn.edu) is the submit host used by most LPC users.  It is open to the world (SSH only – i.e. a secure remote login protocol). From scisub you can also ssh to sarlacc.  Note that unlike sarlacc, scisub is a virtual host with limited computing power.  It cannot be used to run local processes or manually install environment packages. 
 transfer (transfer.pmacs.upenn.edu) is used for transferring files from LPC to a local machine.
-Logging in from a linux machine:
-ssh username@sarlacc.pmacs.upenn.edu
+
+### Logging in from Linux:
+`ssh username@sarlacc.pmacs.upenn.edu`
 
 ### Logging in from Windows
 
-It is useful to install both the terminal and GUI software below. The terminal is best for submitting jobs and the GUI is best for navigating and managing the file hierarchy and copying files to and from the LPC.
-Windows (Terminal): Putty - https://www.chiark.greenend.org.uk/~sgtatham/putty/
-Windows (GUI): WinSCP - https://winscp.net/eng/download.php
-Logging in with Putty: 
-Ensure you are connected to VPN via PulseSecure.
-Open the putty .exe file
-In the ‘Session’ window, enter sarlacc.pmacs.upenn.edu under ‘Host Name’
-Confirm ‘Port’ = 22 and ‘Connection type’ = SSH
-[For convenience] In the ‘Connection/Data’ window put the LPC username you were assigned into ‘auto-login username’
-[For convenience] Go back to the ‘Session’ window and type in any session ‘name’ into ‘Saved Sessions’. E.g. ‘LPC_sarlacc’
-[For convenience] Click save, and this information will be available to be loaded your next time opening Putty
-Make sure you session is loaded and click ‘Open’ at bottom of the window
-A terminal will open up requesting your username (if you didn’t save it in step 5).  
-Lastly you will be prompted for your password.
+It is useful to install both the terminal and GUI software below.
+The terminal is best for submitting jobs and the GUI is best for navigating and managing the file hierarchy and copying files to and from the LPC.
 
-Logging in with WinSCP:
-Ensure you are connected to VPN via PulseSecure.
-Open WinSCP software
-In the ‘Session’ window, enter sarlacc.pmacs.upenn.edu under ‘Host Name’
-Confirm ‘Port’ = 22, ‘Connection type’ = SSH, and ‘File protocol’ = SFTP
-Enter your username and password where indicated 
-[For convenience] Click Save and give your session any name for future use.
-Click ‘Login’ to connect, and a GUI will open up allowing you to view both your local PC’s directory as well as the directory on the LPC.  (it should open you up to your home directory the first time logging on)
+- **Windows (Terminal): [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/)**
+- **Windows (GUI): [WinSCP](https://winscp.net/eng/download.php)**
+
+**Logging in with Putty:**
+- Ensure you are connected to VPN via PulseSecure.
+- Open the putty .exe file
+- In the ‘Session’ window, enter `sarlacc.pmacs.upenn.edu` under ‘Host Name’
+- Confirm `‘Port’ = 22` and `‘Connection type’ = SSH`
+- [For convenience] In the ‘Connection/Data’ window put the LPC username you were assigned into ‘auto-login username’
+- [For convenience] Go back to the ‘Session’ window and type in any session ‘name’ into ‘Saved Sessions’. E.g. ‘LPC_sarlacc’
+- [For convenience] Click save, and this information will be available to be loaded your next time opening Putty
+- Make sure you session is loaded and click ‘Open’ at bottom of the window
+- A terminal will open up requesting your username (if you didn’t save it in step 5).
+- Lastly you will be prompted for your password.
+
+**Logging in with WinSCP:**
+- Ensure you are connected to VPN via PulseSecure.
+- Open WinSCP software
+- In the ‘Session’ window, enter `sarlacc.pmacs.upenn.edu` under ‘Host Name’
+- Confirm `‘Port’ = 22`, `‘Connection type’ = SSH`, and `‘File protocol’ = SFTP`
+- Enter your username and password where indicated 
+- [For convenience] Click Save and give your session any name for future use.
+- Click ‘Login’ to connect, and a GUI will open up allowing you to view both your local PC’s directory as well as the directory on the LPC (it should open you up to your home directory the first time logging on).
 
 ### Logging in from MacOS
 
 #### Using Cyberduck
+
+**[TODO]**
 
 ## Navigating the LPC from a command line
 
@@ -103,13 +110,15 @@ See the following link for an overview of basic Linux commands:
 https://wiki.pmacs.upenn.edu/pub/Linux_Basics
 
 Some of the most commonly used basic commands include:
-https://missing.csail.mit.edu/ 
-ls (lists contents of current directory)
-ls -a (lists contents of current directory ~including hidden files)
-cd somedirectory (move from current directory to ‘somedirectory’)
-cd .. (move back one level in the folder hierarchy towards the root folder)
-mkdir somedirectory (make a new directory called ‘somedirectory’)
-head myfile.txt (show the beginning of a file)
+
+- `ls` (lists contents of current directory)
+- `ls -a` (lists contents of current directory including hidden files)
+- `cd somedirectory` (move from current directory to ‘somedirectory’)
+- `cd ..` (move back one level in the folder hierarchy towards the root folder)
+- `mkdir somedirectory` (make a new directory called `somedirectory`)
+- `head myfile.txt` (show the beginning of a file)
+
+A great tutorial on how to effectively use a Unix command line is available at https://missing.csail.mit.edu/. 
 
 ## Customizing your environment
 
