@@ -1,5 +1,30 @@
 # LPC Documentation for the Epistasis Lab
 
+*Written by members (and friends) of the lab*
+
+## Contents
+
+- [LPC Documentation for the Epistasis Lab](#lpc-documentation-for-the-epistasis-lab)
+  - [Contents](#contents)
+  - [Introduction](#introduction)
+  - [Links and other resources](#links-and-other-resources)
+  - [Getting Started (e.g., new students)](#getting-started-eg-new-students)
+  - [Logging into the LPC](#logging-into-the-lpc)
+    - [Logging in from Windows](#logging-in-from-windows)
+    - [Logging in from MacOS](#logging-in-from-macos)
+      - [Using Cyberduck](#using-cyberduck)
+  - [Navigating the LPC from a command line](#navigating-the-lpc-from-a-command-line)
+  - [Customizing your environment](#customizing-your-environment)
+  - [Using queues](#using-queues)
+  - [Submitting Jobs](#submitting-jobs)
+  - [Best practices](#best-practices)
+  - [Miscellaneous tips](#miscellaneous-tips)
+  - [Troubleshooting](#troubleshooting)
+  - [LPC Commands Cheat Sheet](#lpc-commands-cheat-sheet)
+    - [LSF (job scheduling system) commands](#lsf-job-scheduling-system-commands)
+    - [PMACS software module commands](#pmacs-software-module-commands)
+    - [Sample job script](#sample-job-script)
+
 ## Introduction
 
 The LPC is a shared computing resource with a large number of processing cores upon which different computational tasks can be run.
@@ -10,25 +35,23 @@ In order to use the LPC you will need to learn how to access it, how to navigate
 
 ## Links and other resources
 
-- https://wiki.pmacs.upenn.edu/pub/LPC
+- [PMACS Wiki - LPC](https://wiki.pmacs.upenn.edu/pub/LPC)
 
-- https://wiki.pmacs.upenn.edu/pub/LSF_Basics
+- [PMACS Wiki - LSF Basics](https://wiki.pmacs.upenn.edu/pub/LSF_Basics)
 
-- https://wiki.pmacs.upenn.edu/pub/Batch_Computing
+- [PMACS Wiki - Batch Computing](https://wiki.pmacs.upenn.edu/pub/Batch_Computing)
 
 ## Getting Started (e.g., new students)
 
-Step 1: Get your PennKey and request LPC account access.
-If you don’t yet have a PennKey, please email medhelp@pennmedicine.upenn.edu to request one. Then, you can email Curt Calafut with your PennKey, CCing Jason, to request access to the LPC. You will be assigned an account username which will serve as the name of your home directory as well as be used to log onto the LPC. 
-Step 2: Set up VPN for off campus LPC access
+- **Step 1: Get your PennKey and request LPC account access.** If you don’t yet have a PennKey, please email medhelp@pennmedicine.upenn.edu to request one. Then, you can email Curt Calafut with your PennKey, CCing Jason, to request access to the LPC. You will be assigned an account username which will serve as the name of your home directory as well as be used to log onto the LPC. 
+- **Step 2: Set up VPN for off campus LPC access**.
 Notes:The LPC can be accessed (i.e. logged on to) online directly while on campus, but in order to log on (specifically the Moore lab’s sarlacc server) from off campus you will first need to connect to campus with a virtual private network (VPN).
-*First, make sure you enroll in DUO Two factor authentication set up. This is needed to access most online UPenn resources from off campus: https://wiki.pmacs.upenn.edu/pub/HSRDC_Getting_Started#Duo_Two-Factor_Authentication
-*Next install the Pulse Secure Software: 
-https://www.med.upenn.edu/pmacs/assets/user-content/PMACS%20VPN%20%E2%80%93%20Mac%20OS%20Automated%20Install%20and%20Configuration%20(Preferred).pdf
-https://www.isc.upenn.edu/sites/default/files/pulse_secure_vpn_cc.pdf
+  - First, make sure you enroll in [DUO Two-factor authentication](https://wiki.pmacs.upenn.edu/pub/HSRDC_Getting_Started#Duo_Two-Factor_Authentication). This is needed to access most online UPenn resources from off campus.
+  - Next install the [Pulse Secure Software](https://www.med.upenn.edu/pmacs/assets/user-content/PMACS%20VPN%20%E2%80%93%20Mac%20OS%20Automated%20Install%20and%20Configuration%20(Preferred).pdf). Detailed instructions can be found [here](https://www.isc.upenn.edu/sites/default/files/pulse_secure_vpn_cc.pdf).
 
-*Lastly log onto VPN from off campus, instructions here:
-https://www.med.upenn.edu/pmacs/pulseduo.html.
+- **Step 3: Log onto VPN from off campus**. ([Instructions here](https://www.med.upenn.edu/pmacs/pulseduo.html)).
+
+When each of these are complete, you should be able to log into the LPC using the instructions that follow. Note: You'll need to log into 
 
 ## Logging into the LPC
 
