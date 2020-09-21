@@ -24,6 +24,7 @@
   - [LPC Commands Cheat Sheet](#lpc-commands-cheat-sheet)
     - [LSF (job scheduling system) commands](#lsf-job-scheduling-system-commands)
     - [PMACS software module commands](#pmacs-software-module-commands)
+    - [Miscellaneous commands](#miscellaneous-commands)
     - [Sample job script](#sample-job-script)
 
 ## Introduction
@@ -184,6 +185,53 @@ If there is still issue connecting to sarlacc, try emptying the contents of the 
 
 ### LSF (job scheduling system) commands
 
+| Command | Description |
+|---------|-------------|
+| `bjobs` | Show unfinished jobs |
+| `bjobs -sum` | Summarize active jobs |
+| `bjobs -u ryanurb` | Show jobs for user `ryanurb` | 
+| `bkill 12345` | Kill job with ID `12345` |
+| `bkill 0` | Kill all jobs that belong to you |
+| `bhosts doi_exe` | Show server hosts |
+| `bhosts` | Show all hosts |
+| `bswitch` | Switch a job to a different queue |
+
+Some other LSF commands can be found [here](https://www.med.upenn.edu/hpc/assets/user-content/documents/lsf-quick-reference_user_commands.pdf).
+
 ### PMACS software module commands
 
+| Command | Description |
+|---------|-------------|
+| `module list` | List loaded modules |
+| `module avail` | List all available modules |
+| `module avail python` | List available python modules |
+| `module load python/3.7` | Loads the module named `python/3.7` |
+| `module unload python/2.7.10` | Unloads the module named `python/2.7.10` |
+| `module switch gcc/4.9.4 gcc/6.2.0` | Swap out module `gcc/4.9.4` for `gcc/6.2.0` (useful for changing software versions) |
+
+### Miscellaneous commands
+
+| Command | Description |
+|---------|-------------|
+| `df -h` | Get current disk usage and total disk capacity |
+| `du -hs` | Get size of current directory |
+
 ### Sample job script
+
+```bash
+#!/bin/bash
+#BSUB -J myjobname
+#BSUB -o outputfile.%J.out
+#BSUB -e errorfile.%J.err
+#BSUB -q epistasis_normal 
+#BSUB -M 10000
+module add python/3.7
+cd /project/moore/users/myhomedirectory
+python3.7 script.py -parA 0 -parB value
+```
+
+Assuming this is saved to a file named `script.sh`, you can submit the job by running:
+
+```bash
+$ bsub < script.sh
+```
