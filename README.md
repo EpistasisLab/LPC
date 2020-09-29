@@ -29,7 +29,7 @@
 
 ## Introduction
 
-The LPC is a shared computing resource with a large number of processing cores upon which different computational tasks can be run.
+The LPC (Limited Performance Computing) is a shared computing resource with a large number of processing cores upon which different computational tasks can be run.
 The LPC can be used to run computing processes that require a larger amount of memory that most PCs or laptops have available, as well as to run many processes simultaneously (on separate computing cores) and thus parallelize a large number of computational tasks.
 Each computing process (e.g., running a machine learning algorithm on a dataset), can be submitted (as a ‘job’) to an appropriate LPC queue (i.e. a program that manages the running of jobs from different users on cores of the LPC.
 Each user of the LPC is set up with a home directory within which they can put the code or data they wish to run, and within which job outputs can be saved.
@@ -50,7 +50,8 @@ In order to use the LPC you will need to learn how to access it, how to navigate
 Notes:The LPC can be accessed (i.e. logged on to) online directly while on campus, but in order to log on (specifically the Moore lab’s sarlacc server) from off campus you will first need to connect to campus with a virtual private network (VPN).
   - First, make sure you enroll in [DUO Two-factor authentication](https://wiki.pmacs.upenn.edu/pub/HSRDC_Getting_Started#Duo_Two-Factor_Authentication). This is needed to access most online UPenn resources from off campus.
   - Next install the [Pulse Secure Software](https://www.med.upenn.edu/pmacs/assets/user-content/PMACS%20VPN%20%E2%80%93%20Mac%20OS%20Automated%20Install%20and%20Configuration%20(Preferred).pdf). Detailed instructions can be found [here](https://www.isc.upenn.edu/sites/default/files/pulse_secure_vpn_cc.pdf).
-
+- **Step 2 Alternative: You can access the LPC from off campus without VPN**.
+You can access either sciget.pmacs.upenn.edu or scisub.pmacs.upenn.edu without VPN and then from any of these you can ssh to sarlacc. You can also directly submit jobs to the LPC from scisub.pmacs.upenn.edu. Note however that there is talk about sciget and scisub only being available from the VPN in the future.
 - **Step 3: Log onto VPN from off campus**. ([Instructions here](https://www.med.upenn.edu/pmacs/pulseduo.html)).
 
 When each of these are complete, you should be able to log into the LPC using the instructions that follow. Note: You'll need to log into 
@@ -60,10 +61,11 @@ When each of these are complete, you should be able to log into the LPC using th
 To login to the LPC (and reach your home directory) you will need either a terminal program (i.e. command line) or (if preferred) a graphical user interface (GUI) program. These programs differ if you have Windows, Mac or Linux Machine. Please see the following link for your appropriate operating system and style of login: 
 https://wiki.pmacs.upenn.edu/pub/LPC  (Under ‘Login Software Installation’)
 A specific Windows example is provided later in this section.
-Once you have an appropriate program, you will use it to log on to a server (based on who you are affiliated with). This file server/host is a head node, from which you can navigate the LPC directories (including your home) and submit jobs.  There are currently two servers that may be relevant to this group, they are called scisub and sarlacc. For the Moore lab, sarlacc is generally recommended, but both will work in most cases. 
+Once you have an appropriate program, you will use it to log on to a server (based on who you are affiliated with). This file server/host is a head node, from which you can navigate the LPC directories (including your home) and submit jobs.  There are currently two servers that may be relevant to this group for LPC job submissions, they are called scisub and sarlacc. For the Moore lab, sarlacc is generally recommended, but both will work in most cases. 
 sarlacc (sarlacc.pmacs.upenn.edu) is the Moore lab’s submit host.  It is only accessible on campus or through VPN.  This server is ‘beefier’ than others and has its own dedicated cores and storage space. This allows users to run ‘smaller’ computing processes directly on this head node (but this should be avoided).  It also allows users to install and manage their own ‘environment’.  For example if you wish to install the ‘anaconda’ package for running jobs you will need to log onto sarlacc.
-scisub (scisub.pmacs.upenn.edu) is the submit host used by most LPC users.  It is open to the world (SSH only – i.e. a secure remote login protocol). From scisub you can also ssh to sarlacc.  Note that unlike sarlacc, scisub is a virtual host with limited computing power.  It cannot be used to run local processes or manually install environment packages. 
-transfer (transfer.pmacs.upenn.edu) is used for transferring files from LPC to a local machine.
+scisub (scisub.pmacs.upenn.edu) is the submit host used by most LPC users.  It is open to the world (SSH only – i.e. a secure remote login protocol). From scisub you can also ssh to sarlacc.  Note that unlike sarlacc, scisub is a virtual host with limited computing power.  It cannot be used to run local processes or manually install environment packages. In addition, there are 2 other servers relevant to this group for the below tasks, but you cannot submit jobs to the LPC from these servers:
+sciget (sciget.pmacs.upenn.edu): you can ssh to it and it has outbound network access. Primarily useful for wget, git, svn, etc.
+transfer (transfer.pmacs.upenn.edu) is used for transferring files from LPC to a local machine (sftp, scp and rsync). You cannot ssh to it.
 
 ### Logging in from Linux:
 `ssh username@sarlacc.pmacs.upenn.edu`
@@ -96,6 +98,8 @@ The terminal is best for submitting jobs and the GUI is best for navigating and 
 - Enter your username and password where indicated 
 - [For convenience] Click Save and give your session any name for future use.
 - Click ‘Login’ to connect, and a GUI will open up allowing you to view both your local PC’s directory as well as the directory on the LPC (it should open you up to your home directory the first time logging on).
+
+Note that it is also possible to configure WinSCP to automatically open a putty terminal upon connection.
 
 ### Logging in from MacOS
 
@@ -149,7 +153,7 @@ https://wiki.pmacs.upenn.edu/pub/Epistasis_lab
 There are a few general queue types:
 
 - `normal`: For most jobs.
-- `long`: For long running jobs (think a month or more).
+- `long`: For long running jobs (more than 24 hr).
 - `interactive`: For jobs that are run interactively.
 
 More information on queues in general is available here:
@@ -174,6 +178,14 @@ https://www.ibm.com/support/knowledgecenter/en/SSWRJV_10.1.0/lsf_welcome/lsf_wel
 ## Miscellaneous tips
 
 [TODO]
+
+To avoid accidental deletion or overwriting of files it is recommended that you put these aliases in your .bashrc:
+
+- alias rm='rm -i'
+- alias mv='mv -i'
+- alias cp='cp -i'
+
+Each of these will prompt linux to ask you confirmation for the corresponding action.
 
 ## Troubleshooting
 
